@@ -12,7 +12,7 @@
 - ### cut, sort, uniq, wc
 - ### curl → API call
 - ### jq → JSON parse
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 1. System Monitoring and Health Check
 ```#!/bin/bash
 #!/bin/bash
@@ -52,10 +52,9 @@ awk '$9 ~ /^4/ {print}' $LOG | wc -l
 echo "5xx errors:"
 awk '$9 ~ /^5/ {print}' $LOG | wc -l
 ```
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 - #!/bin/bash        = Declare to run bash script and prove that
 - echo "Top 10 IPs"  = Most enter 10 Ip addresses
 - echo "Top 10 URLs" = Most request 10 URL
 - echo "4xx errors"  = Client side error bulk
 - echo "5xx errors:" = Server side error bulk
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
