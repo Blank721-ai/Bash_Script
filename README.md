@@ -26,12 +26,36 @@ echo "CPU: $CPU%"
 echo "MEM: $MEM%"
 echo "DISK: $DISK"
 ```
-- #!/bin/bash = Declare to run bash script and prove that
-- set -euo pipefail = To run secure (Best Practice) 
-- CPU=$(...) = Calculating CPU usage 
-- MEM=$(...) = Calculating MEM usage
-- DISK=$(...) = Calculating DISK usage
-- echo "CPU: $CPU%" = To show with percentage
-- echo "MEM: $MEM%" = To show with percentage
+- #!/bin/bash        = Declare to run bash script and prove that
+- set -euo pipefail  = To run secure (Best Practice) 
+- CPU=$(...)         = Calculating CPU usage 
+- MEM=$(...)         = Calculating MEM usage
+- DISK=$(...)        = Calculating DISK usage
+- echo "CPU: $CPU%"  = To show with percentage
+- echo "MEM: $MEM%"  = To show with percentage
 - echo "DISK: $DISK" = To show with percentage
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 2. Log Analyzer Script
+```#!/bin/bash
+#!/bin/bash
+LOG=/var/log/nginx/access.log
+
+echo "Top 10 IPs:"
+awk '{print $1}' $LOG | sort | uniq -c | sort -nr | head
+
+echo "Top 10 URLs:"
+awk '{print $7}' $LOG | sort | uniq -c | sort -nr | head
+
+echo "4xx errors:"
+awk '$9 ~ /^4/ {print}' $LOG | wc -l
+
+echo "5xx errors:"
+awk '$9 ~ /^5/ {print}' $LOG | wc -l
+```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- #!/bin/bash        = Declare to run bash script and prove that
+- echo "Top 10 IPs"  = Most enter 10 Ip addresses
+- echo "Top 10 URLs" = Most request 10 URL
+- echo "4xx errors"  = Client side error bulk
+- echo "5xx errors:" = Server side error bulk
 
