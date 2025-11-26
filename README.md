@@ -7,6 +7,7 @@
 
 ## 1. System Monitoring and Health Check
 ```#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
 CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8}')
