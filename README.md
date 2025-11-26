@@ -5,6 +5,14 @@
 
 # Bash scripts
 
+## ✔ Tool List (MUST KNOW)
+- ### grep → search logs
+- ### awk → extract columns
+- ### sed → replace
+- ### cut, sort, uniq, wc
+- ### curl → API call
+- ### jq → JSON parse
+
 ## 1. System Monitoring and Health Check
 ```#!/bin/bash
 #!/bin/bash
