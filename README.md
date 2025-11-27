@@ -1,9 +1,9 @@
 
 # Hi, I'm Blank! 👋
-### I intend to use these script for all enginner.
+### I intend to use these script for all enginner.😊
 
 
-# Bash scripts
+# Bash scripts 💲
 
 ## ✔ Tool List (MUST KNOW)
 - ### grep → search logs
@@ -75,4 +75,15 @@ find $DEST -mtime +7 -delete
 - $(date +%F-%H%M)                    = Current date and time
 - tar -czf $DEST/site-$TS.tar.gz $SRC = In SRC files are put into DEST by compressing with .tar.gz
 - find $DEST -mtime +7 -delete        = Over 7days delete automatic in DEST's files
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 4. Cron Job Scheduling Automation
+```#!/bin/bash
+*/15 * * * * /scripts/health.sh >> /scripts/health.log
+0 3 * * * /scripts/backup.sh
+```
+- #!/bin/bash                         = Declare to run bash script and prove that
+- health.sh                           = Refer to 1. System Monitoring and Health Check
+- backup.sh                           = Refer to 3. File & Database Backup Automation
+- */15 * * * *                        = Run that script every 15 minutes ago
+- 0 3 * * *                           = Run that script every 3:00am for everyday
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
