@@ -58,3 +58,21 @@ awk '$9 ~ /^5/ {print}' $LOG | wc -l
 - echo "4xx errors"  = Client side error bulk
 - echo "5xx errors:" = Server side error bulk
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 3. File & Database Backup Automation
+```#!/bin/bash
+#!/bin/bash
+SRC=/var/www/html
+DEST=/backup
+
+mkdir -p $DEST
+TS=$(date +%F-%H%M)
+tar -czf $DEST/site-$TS.tar.gz $SRC
+find $DEST -mtime +7 -delete
+```
+- #!/bin/bash                         = Declare to run bash script and prove that
+- SRC and DEST                        = Recognise variables
+- mkdir                               = Making dir
+- $(date +%F-%H%M)                    = Current date and time
+- tar -czf $DEST/site-$TS.tar.gz $SRC = In SRC files are put into DEST by compressing with .tar.gz
+- find $DEST -mtime +7 -delete        = Over 7days delete automatic in DEST's files
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
