@@ -99,5 +99,5 @@ esac
 ```
 - #!/bin/bash                         = Declare to run bash script and prove that
 - $1                                  = Refer to start or stop or restart
-#### use format ./docker.sh start or stop or restart = Docker Automation
+#### use format <<./docker.sh start or stop or restart>> = Docker Automation
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
