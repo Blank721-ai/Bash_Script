@@ -13,7 +13,7 @@
 - ### curl → API call
 - ### jq → JSON parse
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 1. System Monitoring and Health Check
+## 1. System Monitoring and Health Check 🖥️
 ```#!/bin/bash
 #!/bin/bash
 set -euo pipefail
@@ -35,7 +35,7 @@ echo "DISK: $DISK"
 - echo "MEM: $MEM%"  = To show with percentage
 - echo "DISK: $DISK" = To show with percentage
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 2. Log Analyzer Script
+## 2. Log Analyzer Script 📃
 ```#!/bin/bash
 #!/bin/bash
 LOG=/var/log/nginx/access.log
@@ -58,7 +58,7 @@ awk '$9 ~ /^5/ {print}' $LOG | wc -l
 - echo "4xx errors"  = Client side error bulk
 - echo "5xx errors:" = Server side error bulk
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 3. File & Database Backup Automation
+## 3. File & Database Backup Automation 🗄️
 ```#!/bin/bash
 #!/bin/bash
 SRC=/var/www/html
@@ -76,8 +76,9 @@ find $DEST -mtime +7 -delete
 - tar -czf $DEST/site-$TS.tar.gz $SRC = In SRC files are put into DEST by compressing with .tar.gz
 - find $DEST -mtime +7 -delete        = Over 7days delete automatic in DEST's files
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 4. Cron Job Scheduling Automation
+## 4. Cron Job Scheduling Automation ⌛
 ```#!/bin/bash
+#!/bin/bash
 */15 * * * * /scripts/health.sh >> /scripts/health.log
 0 3 * * * /scripts/backup.sh
 ```
@@ -86,4 +87,17 @@ find $DEST -mtime +7 -delete
 - backup.sh                           = Refer to 3. File & Database Backup Automation
 - */15 * * * *                        = Run that script every 15 minutes ago
 - 0 3 * * *                           = Run that script every 3:00am for everyday
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 5. Docker Automation 🐬
+```#!/bin/bash
+#!/bin/bash
+case "$1" in
+ start) docker compose up -d ;;
+ stop) docker compose down ;;
+ restart) docker compose down && docker compose up -d ;;
+esac
+```
+- #!/bin/bash                         = Declare to run bash script and prove that
+- $1                                  = Refer to start or stop or restart
+#### use format ./docker.sh start or stop or restart = Docker Automation
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
