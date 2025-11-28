@@ -101,3 +101,29 @@ esac
 - $1                                  = Refer to start or stop or restart
 #### use format <<./docker.sh start or stop or restart>> = Docker Automation
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 6. Deployment Script 📄
+```#!/bin/bash
+#!/bin/bash
+APP=/var/www/app
+cd $APP
+git pull origin main
+npm install
+pm2 restart all
+```
+- #!/bin/bash                         = Declare to run bash script and prove that
+- APP                                 = Variable
+- npm install                         = Dependencies install for package.json or depend on file by installing dependencies
+- pm2 restart all                     = (Production Process Manager for Node.js) Zero downtime for first instance , firstly restart second instance
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 7. User & Linux Security Automation🐧🔐
+```#!/bin/bash
+#!/bin/bash
+USER=$1
+adduser --disabled-password $USER
+mkdir /home/$USER/.ssh
+echo "$2" > /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
+```
+-  #!/bin/bash                         = Declare to run bash script and prove that
+#### Run format   <<./create_user.sh [User name] "[SSH Public Key]">> = User & Linux Security Automation      
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
